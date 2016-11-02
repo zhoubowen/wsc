@@ -1,0 +1,43 @@
+<div th:fragment="page">
+    <div class="pagination alternate text-right" id="pagination">
+
+        <div class="count">
+            <span th:text="${data.total}"/>条记录 (第 <span th:text="${data.pageNum}"/> 页,共<span th:text="${data.pages}"/>页)
+        </div>
+        <ul>
+            <li th:class="${data.isFirstPage} ? disabled"><a href="javascript:;">上一页</a></li>
+            <li th:each="p: ${data.navigatepageNums}" th:class="${p == data.pageNum} ? active" ><a th:href="|pageNum=${p}|" th:text="${p}"></a></li>
+            <li th:class="${data.isLastPage} ? disabled"><a href="javascript:;">下一页</a></li>
+        </ul>
+
+        <!--<div class="null">暂无记录</div>-->
+
+    </div>
+
+    <script>
+        $(function () {
+            var url_pre = location.href;
+            var page_flag = url_pre.indexOf('pageNum');
+            if (page_flag != -1) {
+                url_pre = url_pre.substring(0, page_flag);
+            } else {
+                var flag = url_pre.indexOf('?');
+                if (flag != -1) {
+                    url_pre += '&amp;';
+                } else {
+                    url_pre += '?'
+                }
+            }
+            $("#pagination a").each(function (i, o) {
+                var temp = $(o).attr('href');
+                if (temp == "javascript:;") {
+
+                } else {
+                    $(o).attr('href', url_pre + temp);
+                }
+            });
+        });
+    </script>
+</div>
+
+

@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:include="fragments/header :: header"/>
+<body>
+
+<div id="sidebar" th:include="fragments/left :: left"/>
+<!-- 主体内容 -->
+<div id="content">
+    <div id="content-header">
+        <h1>商品管理 | 已通过商品</h1>
+    </div>
+
+    <div class="container-fluid">
+        <hr/>
+        <div class="row-fluid">
+            <div class="span12">
+                <div class="widget-box">
+                    <div class="widget-title"><span class="icon"> <i class="icon-align-justify"></i> </span>
+                        <h5>已通过商品列表</h5>
+                    </div>
+                    <div class="widget-content nopadding">
+                        <form class="form-horizontal form-horizontal-inline" method="get" id="frm"
+                              action="/gb/goods/queryOnlineGoodsList.do">
+                            <input type="hidden" name="orderType" id="orderTypeId" value=""/>
+                            <div class="row-fluid">
+                                <div class="span4">
+                                    <div class="control-group">
+                                        <label class="control-label">商品ID：</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="" class="span8" name="styleNumId"
+                                                   value="907356"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="control-group">
+                                        <label class="control-label">商品标题：</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="" class="span8" name="styleTitle" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="span4">
+                                    <div class="control-group">
+                                        <label class="control-label">款式编码：</label>
+                                        <div class="controls">
+                                            <input type="text" placeholder="" class="span8" name="styleId" value=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="row-fluid">
+                                <div class="span12">
+                                    <div class="form-actions">
+                                        <input type="hidden" name="online" value="1"/>
+                                        <input type="hidden" name="type" value="1"/>
+                                        <button class="btn btn-success" type="submit" id="next">筛选</button>
+                                        <button class="btn btn-warning" type="reset">重置</button>
+                                        <div class="btn-group tip-right"
+                                             data-original-title="由于数据量大，导出速度比较慢，请点击“生成数据”，稍后再进行数据下载(导出excel表格)。">
+                                            <button class="btn btn-danger dropdown-toggle" data-toggle="dropdown">导出
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu" id="exportOrder"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="widget-content">
+                        <div class="widget-box widget-tabs-box">
+                            <ul class="nav nav-tabs">
+                                <li>
+                                    <a href="##">全部</a>
+                                </li>
+                                <li class="active">
+                                    <a href="##">已上架</a>
+                                </li>
+                                <li class="">
+                                    <a href="##">已下架</a>
+                                </li>
+                                <li>
+                                    <a href="##">已售罄</a>
+                                </li>
+                            </ul>
+                            <div class="widget-content tab-content">
+                                <table class="table table-hover with-check table-text-center table-order">
+                                    <thead>
+                                        <th>
+                                            <label for="checkbox-01" class="label_check">
+                                                <input type="checkbox" id="checkAll" name="sample-checkbox-01"/>
+                                            </label>
+                                        </th>
+                                        <th class="text-left">商品标题</th>
+                                        <th>商品ID</th>
+                                        <th>一级类目</th>
+                                        <th>上架时间</th>
+                                        <th>操作</th>
+                                    </thead>
+                                    <tbody>
+                                        <tr th:each="o : ${data.list}">
+                                            <td>
+                                                <label for="checkbox-01" class="label_check">
+                                                    <input type="checkbox" id="checkAll" name="sample-checkbox-01"/>
+                                                </label>
+                                            </td>
+                                            <td class="text-left baobei">
+                                                <!--[[${customerName}]]-->
+                                                <span th:text="${o.goodsTitle}"/>
+                                                <span class="pic">
+                                                    <img src="http://wsc-goods-img.oss-cn-shanghai.aliyuncs.com/090ebd6c-06db-4453-8d53-7b4534ad715e.jpg" />
+                                                </span>
+                                            </td>
+                                            <td th:text="${o.goodsId}"/>
+                                            <td th:text="${o.goodsTitle}"/>
+                                            <td th:text="${o.goodsOnline}"/>
+                                            <td>
+                                                <a class="btn btn-warning btn-mini" href="#">编辑</a>
+                                                <a class="btn btn-danger btn-mini"  href="javascript:void(0)">下架</a>
+                                                <a class="btn btn-primary btn-mini"  href="javascript:void(0)">刷新缓存</a>
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+
+                                <button type="button" class="btn btn-danger" id="putGoodsOn">批量下架</button>
+                            </div>
+                            <!--分页-->
+                            <div th:replace="page/page :: page"/>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.common.dao.picfile.IPicFileDao">
+
+    <resultMap id="picFileMap" type="picFileEntity">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="file_name" property="fileName" jdbcType="VARCHAR"/>
+        <result column="create_date" property="createDate" jdbcType="TIMESTAMP"/>
+        <result column="bucket_name" property="bucketName" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <sql id="all_column_list">
+        id, file_name, create_date, bucket_name
+      </sql>
+
+    <insert id="insert" parameterType="picFileEntity">
+        insert into t_pic_file
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="fileName != null">
+                file_name,
+            </if>
+            create_date,
+            <if test="bucketName != null">
+                bucket_name,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="fileName != null">
+                #{fileName,jdbcType=VARCHAR},
+            </if>
+            now(),
+            <if test="bucketName != null">
+                #{bucketName,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+
+</mapper>

@@ -1,0 +1,42 @@
+<div id="sidebar" th:fragment="left">
+    <a href="javascript:;" class="visible-phone"><i class="icon icon-inbox"></i> Widgets</a>
+    <ul id="matrix-nav">
+        <li class="submenu active open" data-id="nav-menu-1">
+            <a href="javascript:;"><span class="icon icon-chevron-left"></span>用户管理</a>
+            <ul>
+                <li  data-id="nav-cmenu-1" class="active open">
+                    <a href="$!{request.getContextPath()}$!{cmenu.menuUrl}">用户管理</a>
+                </li>
+                <li  data-id="nav-cmenu-2">
+                    <a href="$!{request.getContextPath()}$!{cmenu.menuUrl}">用户管理</a>
+                </li>
+                <li  data-id="nav-cmenu-3">
+                    <a href="$!{request.getContextPath()}$!{cmenu.menuUrl}">用户管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="submenu" data-id="nav-menu-2">
+            <a href="javascript:;"><span class="icon icon-chevron-left"></span>商品管理</a>
+            <ul>
+                <li  data-id="nav-cmenu-4">
+                    <a th:href="@{/goods/list}">商品列表</a>
+                </li>
+                <li  data-id="nav-cmenu-5">
+                    <a href="$!{request.getContextPath()}$!{cmenu.menuUrl}">用户管理</a>
+                </li>
+                <li  data-id="nav-cmenu-6">
+                    <a href="$!{request.getContextPath()}$!{cmenu.menuUrl}">用户管理</a>
+                </li>
+            </ul>
+        </li>
+        <li class="submenu" data-id="nav-menu-3">
+            <a href="javascript:;"><span class="icon icon-chevron-left"></span>订单管理</a>
+            <ul>
+                <li  data-id="nav-cmenu-7">
+                    <a href="$!{request.getContextPath()}$!{cmenu.menuUrl}">订单列表</a>
+                </li>
+            </ul>
+        </li>
+
+    </ul>
+</div>
