@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.common.dao.goods.IGoodsSizeDao" >
+  <resultMap id="goodSizeMap" type="goodsSizeEntity" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="size_name" property="sizeName" jdbcType="VARCHAR" />
+    <result column="order_num" property="orderNum" jdbcType="INTEGER" />
+  </resultMap>
+
+  <sql id="full_column_list" >
+    id, size_name, order_num
+  </sql>
+</mapper>

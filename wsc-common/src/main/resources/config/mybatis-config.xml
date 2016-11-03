@@ -33,6 +33,8 @@
 		<typeAlias alias="categoryEntity" type="com.common.entity.goods.Category"></typeAlias>
 		<typeAlias alias="picFileEntity" type="com.common.entity.picfile.PicFile"></typeAlias>
 		<typeAlias alias="goodsPriceEntity" type="com.common.entity.goods.GoodsPrice"></typeAlias>
+		<typeAlias alias="goodsColorEntity" type="com.common.entity.goods.GoodsColor"></typeAlias>
+		<typeAlias alias="goodsSizeEntity" type="com.common.entity.goods.GoodsSize"></typeAlias>
 	</typeAliases>
 
 	<plugins>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.common.dao.goods.IGoodsItemDao" >
+  <resultMap id="goodsItemMap" type="goodsItemEntity" >
+
+    <id column="item_id" property="itemId" jdbcType="INTEGER" />
+    <result column="item_name" property="itemName" jdbcType="VARCHAR" />
+    <result column="goods_id" property="goodsId" jdbcType="INTEGER" />
+    <result column="item_pic_id" property="itemPicId" jdbcType="INTEGER" />
+    <result column="item_color_id" property="itemColorId" jdbcType="INTEGER" />
+    <result column="item_size_id" property="itemSizeId" jdbcType="INTEGER" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="laset_update_date" property="lasetUpdateDate" jdbcType="TIMESTAMP" />
+  </resultMap>
+
+  <sql id="full_column_list" >
+    item_id, item_name, goods_id, item_pic_id, item_color_id, item_size_id, create_date, 
+    laset_update_date
+  </sql>
+
+</mapper>
