@@ -1,6 +1,5 @@
-package com.common.service.user.impl;
+package com.security;
 
-import com.common.entity.user.CurrentUser;
 import com.common.entity.user.User;
 import com.common.service.user.IUserService;
 import org.slf4j.Logger;

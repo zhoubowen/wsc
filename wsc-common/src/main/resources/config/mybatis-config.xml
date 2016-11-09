@@ -35,6 +35,7 @@
 		<typeAlias alias="goodsPriceEntity" type="com.common.entity.goods.GoodsPrice"></typeAlias>
 		<typeAlias alias="goodsColorEntity" type="com.common.entity.goods.GoodsColor"></typeAlias>
 		<typeAlias alias="goodsSizeEntity" type="com.common.entity.goods.GoodsSize"></typeAlias>
+		<typeAlias alias="goodListPriceEntity" type="com.common.entity.goods.GoodsListPrice"></typeAlias>
 	</typeAliases>
 
 	<plugins>

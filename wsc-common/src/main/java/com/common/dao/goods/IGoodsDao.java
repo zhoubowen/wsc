@@ -3,7 +3,6 @@ package com.common.dao.goods;
 import com.common.dto.goods.GoodsSearchDto;
 import com.common.entity.goods.Goods;
 import org.apache.ibatis.annotations.Param;
-import org.springframework.security.access.method.P;
 
 import java.util.List;
 

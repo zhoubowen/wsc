@@ -1,7 +1,7 @@
 package com.common.service.user;
 
 import com.common.entity.user.User;
-import com.common.form.UserCreateForm;
+//import com.common.form.UserCreateForm;
 
 import java.util.Collection;
 
@@ -22,6 +22,6 @@ public interface IUserService {
 
     Collection<User> getAllUsers();
 
-    User create(UserCreateForm form);
+//    User create(UserCreateForm form);
 
 }

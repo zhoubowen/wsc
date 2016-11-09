@@ -2,11 +2,10 @@ package com.common.service.user.impl;
 
 import com.common.dao.user.IUserDao;
 import com.common.entity.user.User;
-import com.common.form.UserCreateForm;
+//import com.common.form.UserCreateForm;
 import com.common.service.user.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -50,11 +49,11 @@ public class UserServiceImpl implements IUserService {
         return null;
     }
 
-    @Override
-    public User create(UserCreateForm form) {
-        User user = new User();
-        user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
-        user.setRole(form.getRole());
-        return null;
-    }
+//    @Override
+//    public User create(UserCreateForm form) {
+//        User user = new User();
+//        user.setPasswordHash(new BCryptPasswordEncoder().encode(form.getPassword()));
+//        user.setRole(form.getRole());
+//        return null;
+//    }
 }

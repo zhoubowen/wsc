@@ -27,7 +27,7 @@ public class GoodsServiceTest extends BaseTest{
 
     @Test
     public void testInsert(){
-        for(int i = 21 ; i< 25; i++){
+        for(int i = 1 ; i< 25; i++){
         Goods goods = new Goods();
         goods.setGoodsDetailHtml("测试商品详情页" + i);
         goods.setGoodsTitle("测试商品"+ i);

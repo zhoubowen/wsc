@@ -82,9 +82,6 @@
                                 <li class="">
                                     <a href="##">已下架</a>
                                 </li>
-                                <li>
-                                    <a href="##">已售罄</a>
-                                </li>
                             </ul>
                             <div class="widget-content tab-content">
                                 <table class="table table-hover with-check table-text-center table-order">
@@ -96,6 +93,7 @@
                                         </th>
                                         <th class="text-left">商品标题</th>
                                         <th>商品ID</th>
+                                        <th>价格</th>
                                         <th>一级类目</th>
                                         <th>上架时间</th>
                                         <th>操作</th>
@@ -115,6 +113,11 @@
                                                 </span>
                                             </td>
                                             <td th:text="${o.goodsId}"/>
+                                            <td>
+                                                <p class="special-num">
+                                                    <strong th:if="${o.goodsListPrice.price != null}"  th:text=" ${#numbers.formatDecimal(o.goodsListPrice.price, 3, 2)}"></strong>
+                                                </p>
+                                            </td>
                                             <td th:text="${o.goodsTitle}"/>
                                             <td th:text="${o.goodsOnline}"/>
                                             <td>

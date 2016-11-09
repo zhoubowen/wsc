@@ -5,10 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
-import org.springframework.boot.context.embedded.ConfigurableEmbeddedServletContainer;
-import org.springframework.boot.context.embedded.EmbeddedServletContainerCustomizer;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
-import org.springframework.boot.context.web.SpringBootServletInitializer;
 import org.springframework.boot.web.servlet.ServletComponentScan;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -24,7 +21,7 @@ import org.springframework.context.annotation.Configuration;
 @EnableAutoConfiguration
 @EnableConfigurationProperties({OSSConfig.class})
 //@SpringBootApplication
-public class Application extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
+public class Application {//extends SpringBootServletInitializer implements EmbeddedServletContainerCustomizer {
 
     private static final Logger logger = LoggerFactory.getLogger(Application.class);
 
@@ -56,9 +53,8 @@ public class Application extends SpringBootServletInitializer implements Embedde
 
     }
 
-    @Override
-    public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-        configurableEmbeddedServletContainer.setPort(8085);
-        configurableEmbeddedServletContainer.setContextPath("/admin");
-    }
+//    @Override
+//    public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
+//        configurableEmbeddedServletContainer.setPort(SERVER_PORT);
+//    }
 }

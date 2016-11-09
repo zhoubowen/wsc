@@ -1,6 +1,6 @@
 package com.controller.config;
 
-import com.common.service.user.impl.CurrentUserDetailsService;
+import com.security.CurrentUserDetailsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.security.SecurityProperties;
 import org.springframework.context.annotation.Configuration;

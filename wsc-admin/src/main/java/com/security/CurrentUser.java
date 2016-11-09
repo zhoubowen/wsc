@@ -1,5 +1,6 @@
-package com.common.entity.user;
+package com.security;
 
+import com.common.entity.user.User;
 import org.springframework.security.core.authority.AuthorityUtils;
 
 

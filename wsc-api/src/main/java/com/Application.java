@@ -56,9 +56,10 @@ public class Application extends SpringBootServletInitializer implements Embedde
 
     }
 
+
     @Override
     public void customize(ConfigurableEmbeddedServletContainer configurableEmbeddedServletContainer) {
-        configurableEmbeddedServletContainer.setPort(8085);
-        configurableEmbeddedServletContainer.setContextPath("/admin");
+        configurableEmbeddedServletContainer.setPort(8083);
+        configurableEmbeddedServletContainer.setContextPath("/api");
     }
 }

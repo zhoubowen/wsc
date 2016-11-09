@@ -19,11 +19,18 @@
     <result column="goods_category_first" jdbcType="INTEGER" property="goodsCategoryFirst" />
     <result column="goods_category_second" jdbcType="INTEGER" property="goodsCategorySecond" />
     <result column="goods_category_third" jdbcType="INTEGER" property="goodsCategoryThird" />
-    
+
+    <!--主图-->
     <association property="goodsPicFile" fetchType="lazy" javaType="picFileEntity">
       <id column="id" property="id"/>
       <result column="file_name" property="fileName"/>
       <result column="bucket_name" property="bucketName"/>
+    </association>
+
+    <!--列表显示的价格实体-->
+    <association property="goodsListPrice" fetchType="lazy" javaType="goodListPriceEntity">
+      <id column="goods_id" property="goodsId"/>
+      <result column="price" property="price"/>
     </association>
 
   </resultMap>
@@ -44,7 +51,8 @@
 
     p.id,
     p.file_name,
-    p.bucket_name
+    p.bucket_name,
+    lp.price
   </sql>
 
   <insert id="insert" parameterType="goodsEntity">
@@ -171,6 +179,7 @@
       <include refid="full_goods_column"/>
     from t_goods g
     LEFT JOIN t_pic_file p on g.goods_pic_id = p.id
+    LEFT JOIN t_goods_list_price lp on lp.goods_id = g.goods_id
     where goods_id = #{goodsId}
   </select>
 
@@ -183,6 +192,7 @@
     <include refid="full_goods_column"/>
     from t_goods g
     LEFT JOIN t_pic_file p on g.goods_pic_id = p.id
+    LEFT JOIN t_goods_list_price lp on lp.goods_id = g.goods_id
 
   </select>
 
